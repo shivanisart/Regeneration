@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +13,8 @@
     }
     .container {
       width: 100%;
-      max-width: 800px; /* Set maximum width to 800px */
-      margin: 0 auto; /* Center the container */
+      max-width: 800px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -44,6 +44,14 @@
       font-size: 30px;
       margin-top: 10px;
     }
+    .posters {
+      display: flex;
+      gap: 10px; /* Adjust the gap between posters */
+      margin-top: 10px;
+    }
+    .poster {
+      cursor: pointer;
+    }
     footer {
       text-align: center;
       color: white;
@@ -69,9 +77,11 @@
   <div class="container">
     <div id="Message">
       <div id="loveMessage">Regeneration<br> Submitted for Sculpture in the City, 13th Edition<br><br></div>
-      <img src="1.jpg" alt="Poster 1" onclick="playVideo('regeneration1.mov')">
-      <img src="2.jpg" alt="Poster 2" onclick="playVideo('regeneration2.mov')">
-      <img src="3.jpg" alt="Poster 3" onclick="playVideo('regeneration3.mov')">
+      <div class="posters">
+        <img class="poster" src="1.jpg" alt="Poster 1" onclick="playVideo('regeneration1.mov')">
+        <img class="poster" src="2.jpg" alt="Poster 2" onclick="playVideo('regeneration2.mov')">
+        <img class="poster" src="3.jpg" alt="Poster 3" onclick="playVideo('regeneration3.mov')">
+      </div>
       <p> <i class="fas fa-arrow-right fa-icon"></i><br><br></p>
     </div>
     <audio id="audioPlayer" style="display: none;">
@@ -79,7 +89,6 @@
       Your browser does not support the audio tag.
     </audio>
     <video id="videoPlayer" loop playsinline style="display: none; max-width: 100%; max-height: 100%;">
-      <!-- Placeholder source, actual source set dynamically via JavaScript -->
       <source id="videoSource" type="video/quicktime">
       Your browser does not support the video tag.
     </video>
@@ -110,7 +119,6 @@
     }
 
     document.body.addEventListener('click', function() {
-      // Hide video when clicking outside of the posters
       videoPlayer.style.display = 'none';
     });
   </script>
