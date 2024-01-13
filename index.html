@@ -92,42 +92,47 @@
     </div>
   </footer>
   <script>
-    var loveMessage = document.getElementById('loveMessage');
-    var audioPlayer = document.getElementById('audioPlayer');
-    var videoPlayer1 = document.getElementById('videoPlayer1');
-    var videoPlayer2 = document.getElementById('videoPlayer2');
-    var videoPlayer3 = document.getElementById('videoPlayer3');
-    var clickCount = 0;
+  var loveMessage = document.getElementById('loveMessage');
+  var audioPlayer = document.getElementById('audioPlayer');
+  var videoPlayer1 = document.getElementById('videoPlayer1');
+  var videoPlayer2 = document.getElementById('videoPlayer2');
+  var videoPlayer3 = document.getElementById('videoPlayer3');
+  var clickCount = 0;
 
-    function playDoor() {
-      if (clickCount === 0) {
-        loveMessage.style.display = 'none';
-        audioPlayer.style.display = 'block';
-        audioPlayer.play();
+  function playDoor() {
+    if (clickCount === 0) {
+      loveMessage.style.display = 'none';
+      audioPlayer.style.display = 'block';
+      audioPlayer.play();
 
-        audioPlayer.addEventListener('ended', function() {
-          audioPlayer.style.display = 'none';
-          videoPlayer1.style.display = 'block';
-          videoPlayer1.play();
-        });
+      audioPlayer.addEventListener('ended', function () {
+        audioPlayer.style.display = 'none';
+        videoPlayer1.style.display = 'block';
+        videoPlayer1.play();
+      });
 
-        videoPlayer1.addEventListener('ended', function() {
-          videoPlayer1.style.display = 'none';
-          videoPlayer2.style.display = 'block';
-          videoPlayer2.play();
-        });
+      videoPlayer1.addEventListener('ended', function () {
+        videoPlayer1.style.display = 'none';
+        videoPlayer2.style.display = 'block';
+        videoPlayer2.play();
+      });
 
-        videoPlayer2.addEventListener('ended', function() {
-          videoPlayer2.style.display = 'none';
-          videoPlayer3.style.display = 'block';
-          videoPlayer3.play();
-        });
-      }
-
-      clickCount++;
+      videoPlayer2.addEventListener('ended', function () {
+        videoPlayer2.style.display = 'none';
+        videoPlayer3.style.display = 'block';
+        videoPlayer3.play();
+      });
     }
 
-    document.body.addEventListener('click', playDoor);
-  </script>
+    clickCount++;
+  }
+
+  // Make videos visible and start playing on page load
+  document.addEventListener('DOMContentLoaded', function () {
+    videoPlayer1.style.display = 'block';
+    videoPlayer1.play();
+  });
+</script>
+
 </body>
 </html>
