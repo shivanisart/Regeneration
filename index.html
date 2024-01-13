@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regeneration - Unlock me, 2023. Shivani Mathur, William Gallery, London</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow-y: scroll;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      max-height: 100%;
+      padding: 20px;
+    }
+    img, video {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    #lockImage {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+
+    #Message {
+      text-align: center;
+      margin-top: 20px;
+    }
+    #loveMessage {
+      color: white;
+      font-size: 30px;
+      margin-top: 10px;
+    }
+    footer {
+      text-align: center;
+      color: white;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .footer-icons {
+      margin-top: 10px;
+    }
+    .footer-icons a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    p {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div id="Message">
+        <div id="loveMessage">Regeneration<br> Submitted for Sculpture in the City, 13th Edition<br><br></div>
+      <video id="videoPlayer1" loop playsinline style="display: none; max-width: 100%; max-height: 100%;">
+        <source src="regeneration1.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
+      <video id="videoPlayer2" loop playsinline style="display: none; max-width: 100%; max-height: 100%;">
+        <source src="regeneration2.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
+      <video id="videoPlayer3" loop playsinline style="display: none; max-width: 100%; max-height: 100%;">
+        <source src="regeneration3.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
+          <p> <i class="fas fa-arrow-right fa-icon"<br> <br></p>
+    </div>
+
+    
+    <audio id="audioPlayer" style="display: none;">
+      <source src="knock.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+  </div>
+  <footer>
+    <div class="footer-icons">
+        <p> View more award-winning works by Shivani Mathur<br> <br></p>
+        <a href="https://shivanisart.github.io/Shivani-Mathur/awards/awardswilliam.html"><i class="fas fa-globe"></i></a>
+    </div>
+  </footer>
+  <script>
+    var loveMessage = document.getElementById('loveMessage');
+    var audioPlayer = document.getElementById('audioPlayer');
+    var videoPlayer1 = document.getElementById('videoPlayer1');
+    var videoPlayer2 = document.getElementById('videoPlayer2');
+    var videoPlayer3 = document.getElementById('videoPlayer3');
+    var clickCount = 0;
+
+    function playDoor() {
+      if (clickCount === 0) {
+        loveMessage.style.display = 'none';
+        audioPlayer.style.display = 'block';
+        audioPlayer.play();
+
+        audioPlayer.addEventListener('ended', function() {
+          audioPlayer.style.display = 'none';
+          videoPlayer1.style.display = 'block';
+          videoPlayer1.play();
+        });
+
+        videoPlayer1.addEventListener('ended', function() {
+          videoPlayer1.style.display = 'none';
+          videoPlayer2.style.display = 'block';
+          videoPlayer2.play();
+        });
+
+        videoPlayer2.addEventListener('ended', function() {
+          videoPlayer2.style.display = 'none';
+          videoPlayer3.style.display = 'block';
+          videoPlayer3.play();
+        });
+      }
+
+      clickCount++;
+    }
+
+    document.body.addEventListener('click', playDoor);
+  </script>
+</body>
+</html>
 
