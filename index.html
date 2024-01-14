@@ -1,126 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regeneration - Unlock me, 2023. Shivani Mathur, William Gallery, London</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: black;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      overflow-y: scroll;
-    }
-    .container {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-      position: relative;
-      padding: 20px;
-    }
-    img, video {
-      max-width: 100%;
-      max-height: 100%;
-    }
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Shivani Mathur </title>
+   <style>
+       /* Basic CSS styling */
+       body {
+           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+           background-color: #4c4c4c;
+           margin: 0;
+           padding: 0;
+           font-size: 36px; /* Standard font size for body text */
+       }
+      /* Style header and footer */
+header {
+    background-color: #4c4c4c;
+    color: #929292;
+    text-align: center;
+    padding: 10px;
+    font-size: 36px; /* Adjust the font size to your preference */
+}
 
-    #lockImage {
-      max-width: 100%;
-      max-height: 70vh;
-      object-fit: contain;
-    }
 
-    #Message {
-      text-align: center;
-      margin-top: 20px;
-    }
-    #loveMessage {
-      color: white;
-      font-size: 30px;
-      margin-top: 10px;
-    }
-    .posters {
-      display: flex;
-      gap: 10px; /* Adjust the gap between posters */
-      margin-top: 10px;
-    }
-    .poster {
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
-      color: white;
-      margin-top: 10px;
-      width: 100%;
-    }
-    .footer-icons {
-      margin-top: 10px;
-    }
-    .footer-icons a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    p {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 13px;
-    }
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      /* Apply max-width to the page container */
+      .page-container {
+          max-width: 800px;
+          margin: 0 auto; /* To center the content horizontally */
+          padding: 0 20px; /* Add padding to create spacing from the edges */
+   }
+      
+
+       /* Ensure that the menu icon is visible at smaller screen sizes */
+       @media (max-width: 7680px) {
+           .menu-icon {
+               display: inline-block;
+           }
+       
+  
+   
+
+       /* Style header and footer */
+       header {
+           background-color: #4c4c4c;
+           color: #929292;
+           text-align: center;
+           padding: 10px;
+       }
+
+       footer {
+           background-color: #4c4c4c;
+           color: #929292;
+           text-align: center;
+           padding: 10px;
+           margin-top: auto;
+       }
+
+       /* Add CSS for the Font Awesome icons here */
+       .footer-icons {
+           font-size: 36px;
+       }
+
+       /* Style the footer icons */
+       .footer-icons a {
+           color: #929292; /* Set the text color to white */
+           text-decoration: none; /* Remove underlines from links */
+           margin: 0 10px; /* Add margin to space out the icons */
+       }
+
+       /* Style the icons on hover (optional) */
+       .footer-icons a:hover {
+           color: #ffffff; /* Change the color on hover to white */
+       }
+
+       /* Style the video container */
+       .video-container {
+           max-width: 800px;
+           margin: 0 auto;
+           padding: 20px;
+           box-sizing: border-box;
+       }
+
+       /* Style the video captions (toggle button) */
+       .video-caption {
+           font-size: 36px;
+           margin-bottom: 10px;
+           text-align: center;
+           cursor: pointer;
+           background-color: #4c4c4c;
+           color: #929292;
+           padding: 5px 10px;
+           border-radius: 5px;
+       }
+
+       /* Style the video descriptions (hidden by default) */
+       .video-description {
+           display: none;
+           text-align: left;
+           padding: 10px;
+           border: 1px solid #4c4c4c;
+           background-color: #4c4c4c;
+           color: #929292;
+           border-radius: 5px;
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+       }
+
+       /* Style the video posters (thumbnails) */
+       .video-item video {
+           width: 100%; /* Set the video width to 100% */
+           height: auto; /* Allow the video height to adjust to maintain aspect ratio */
+           object-fit: cover; /* Ensure the video covers the entire container */
+       }
+
+       .video-item video::poster {
+           width: 100%; /* Set the video width to 100% */
+           height: auto; /* Allow the video height to adjust to maintain aspect ratio */
+           object-fit: cover; /* Ensure the video covers the entire container */
+       }
+
+       /* Center the header content */
+       .header-content {
+           text-align: center;
+       }
+
+
+       h1 {
+           text-align: center;
+       }
+
+
+
+       /* Style for the additional text */
+       .header-description {
+           margin-top: 10px; /* Add margin to separate it from the title */
+           color: #929292; /* Set the text color */
+       }
+
+       /* Style for the play button icon */
+       .play-button i {
+           color: #4c4c4c;
+       }
+        /* Center the last line in the footer and change its color to #929292 */
+        footer p:last-child {
+            text-align: center;
+            color: #929292;
+        }
+
+        /* Center the "Listen to curator Lindzay Chan" text and change its color to #929292 */
+        .listen-text {
+            text-align: center;
+            color: #929292;
+        }
+
+        /* Center the play button for Lindzay Chan */
+        .play-button {
+            display: block;
+            margin: 0 auto;
+        }     
+   </style>
+
+   <!-- Include the Font Awesome CSS stylesheet -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <div id="Message">
-      <div id="loveMessage">Regeneration<br> Submitted for Sculpture in the City, 13th Edition<br><br></div>
-      <div class="posters">
-        <img class="poster" src="1.jpg" alt="Poster 1" onclick="playVideo('regeneration1.mov')">
-        <img class="poster" src="2.jpg" alt="Poster 2" onclick="playVideo('regeneration2.mov')">
-        <img class="poster" src="3.jpg" alt="Poster 3" onclick="playVideo('regeneration3.mov')">
-      </div>
-      <p> <i class="fas fa-arrow-right fa-icon"></i><br><br></p>
-    </div>
-    <audio id="audioPlayer" style="display: none;">
-      <source src="knock.mp3" type="audio/mpeg">
-      Your browser does not support the audio tag.
-    </audio>
-    <video id="videoPlayer" loop playsinline style="display: none; max-width: 100%; max-height: 100%;">
-      <source id="videoSource" type="video/quicktime">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <footer>
-    <div class="footer-icons">
-      <a href="https://shivanisart.github.io/Shivani-Mathur/awards/awardswilliam.html">View more award-winning works by Shivani Mathur</a>
-    </div>
-  </footer>
-  <script>
-    var loveMessage = document.getElementById('loveMessage');
-    var audioPlayer = document.getElementById('audioPlayer');
-    var videoPlayer = document.getElementById('videoPlayer');
-    var videoSource = document.getElementById('videoSource');
-    
-    function playVideo(videoSrc) {
-      loveMessage.style.display = 'none';
-      audioPlayer.style.display = 'block';
-      audioPlayer.play();
+     
 
-      audioPlayer.addEventListener('ended', function() {
-        audioPlayer.style.display = 'none';
-        videoPlayer.style.display = 'block';
-        videoSource.setAttribute('src', videoSrc);
-        videoPlayer.load();
-        videoPlayer.play();
-      });
+    <header>
+        <div class="page-container">
+
+        <h1>Regeneration</h1>
+        <!-- Additional text below the header -->
+        <p class="header-description"> Shivani Mathur's submission for Sculpture in the City. 13th Edition </p>
+ 
+
+    <!-- Video container -->
+    <div class="video-container">
+        <!-- Video 1 -->
+        <div class="video-item">
+            <div onclick="toggleVideo(0)" loop>
+                <video poster="1.jpg" class="poster" loop playsinline>
+                    <source src="regeneration1.mov" type="video/quicktime">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- Video caption (toggle button) -->
+                <div class="video-caption" style="background-color: #4c4c4c;" onclick="toggleDescription(0)"> <br> <i class="fas fa-play"></i><br><br>LLoyds <br><br> <br>
+                </div>
+                <!-- Video description -->
+                <div class="video-description">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        
+       <!-- Video 2 -->
+<div class="video-item">
+    <div onclick="toggleVideo(1)" loop>
+        <video poster="2.jpg" class="poster" loop playsinline>
+           <source src="regeneration2.mov" type="video/quicktime">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Video caption (toggle button) -->
+        <div class="video-caption" style="background-color: #4c4c4c;" onclick="toggleDescription(1)"><br> <i class="fas fa-play"></i><br><br>Gherkin<br><br></div>
+        <!-- Video description -->
+        <div class="video-description">
+            <p>Gherkin</p>
+        </div>
+    </div>
+</div>
+
+<!-- Video 3 -->
+<div class="video-item">
+    <div onclick="toggleVideo(2)" loop>
+       <video poster="3.jpg" class="poster" loop playsinline>
+           <source src="regeneration3.mov" type="video/quicktime">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Video caption (toggle button) -->
+        <div class="video-caption" style="background-color: #4c4c4c;" onclick="toggleDescription(2)"><br> <i class="fas fa-play"></i><br><br>Rock, Paper, Scissors. 2022 <br> Digital generative art in a collaborative performance.<br><br></div>
+        <!-- Video description -->
+        <div class="video-description">
+            <p>A three-way collaboration: James, a violinist begins playing music. Kelly Briggs responds to James' music by drawing. An algorithm by Shivani picks up Kelly's body movements and creates a digital image of snow dispersing on a screen, to which James responds by altering his music...</p>
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- Play button for the title -->
+        <p class="listen-text">Listen to Lindzay Chan on the series "Regeneration"</p>
+        <button class="play-button" onclick="playTitleAudio()"><i class="fas fa-play"></i></button>
+    </div>
+
+       
+   <footer>
+      
+        <p>“Art had the power to transform humanity. That is my inspiration”
+        &copy; Copyright Shivani Mathur. All rights reserved.</p>
+ </footer>
+
+
+   <script>
+          function toggleMenu() {
+        var menuContainer = document.getElementById('menuContainer');
+        var currentDisplay = window.getComputedStyle(menuContainer).display;
+
+        menuContainer.style.display = (currentDisplay === 'block') ? 'none' : 'block';
     }
 
-    document.body.addEventListener('click', function() {
-      videoPlayer.style.display = 'none';
-    });
-  </script>
+    function closeMenu() {
+        var menuContainer = document.getElementById('menuContainer');
+        menuContainer.style.display = 'none';
+    }
+
+       var titleAudio; // Declare the title audio variable globally
+       var videoAudio; // Declare the video audio variable globally
+       var currentVideo; // Variable to keep track of the currently playing video
+
+
+
+       function playTitleAudio() {
+           if (!titleAudio) {
+               titleAudio = new Audio('lindzay.m4a'); // Replace 'Lindsay.mp3' with the path to your title MP3 audio file
+               titleAudio.loop = true; // Set the audio to loop continuously
+               titleAudio.volume = 0.2; // Set the volume to your desired value
+           }
+
+           // Play or pause the title audio when the title button is clicked
+           if (!titleAudio.paused) {
+               titleAudio.pause(); // Pause the audio if it's playing
+           } else {
+               titleAudio.play(); // Resume playing if it's paused
+           }
+       }
+
+       function playVideoAudio() {
+           if (!videoAudio) {
+               videoAudio = new Audio('010.mp3'); // Replace '010.mp3' with the path to your video MP3 audio file
+               videoAudio.volume = 0.2; // Set the volume to your desired value
+           }
+
+           // Play the video audio when a video is playing
+           videoAudio.play();
+       }
+
+       // Function to toggle video description
+       function toggleDescription(index) {
+           var description = document.querySelectorAll('.video-description')[index];
+           description.style.display = description.style.display === 'block' ? 'none' : 'block';
+       }
+
+       // Function to play or pause the video when a poster is clicked
+       function toggleVideo(index) {
+           console.log("Toggle video called with index: " + index);
+           var video = document.querySelectorAll('video')[index];
+
+           // Check if the video is paused, and toggle play/pause accordingly
+           if (video.paused) {
+               // Pause any previously playing video
+               if (currentVideo && currentVideo !== video) {
+                   currentVideo.pause();
+               }
+               video.play();
+               currentVideo = video;
+
+               // Start playing the video audio
+               playVideoAudio();
+           } else {
+               video.pause();
+               videoAudio.pause();
+           }
+
+           // Pause other videos
+           var allVideos = document.querySelectorAll('video');
+           for (var i = 0; i < allVideos.length; i++) {
+               if (i !== index) {
+                   allVideos[i].pause();
+                   console.log("Paused video at index: " + i);
+               }
+           }
+       }
+   </script>
+
+
 </body>
 </html>
