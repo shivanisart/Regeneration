@@ -270,20 +270,32 @@ header {
  </footer>
 
 
-   <script>
-
-function toggleFullScreen(videoContainer) {
+   <script>function toggleFullScreen(videoContainer) {
     var video = videoContainer.querySelector('video');
     
-    // Check if the browser supports the Fullscreen API and if there's a user action
-    if (video.requestFullscreen && document.fullscreenEnabled) {
-        video.requestFullscreen();
-    } else if (video.mozRequestFullScreen && document.mozFullScreenEnabled) {
-        video.mozRequestFullScreen();
-    } else if (video.webkitRequestFullscreen && document.webkitFullscreenEnabled) {
-        video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen && document.msFullscreenEnabled) {
-        video.msRequestFullscreen();
+    if (!document.fullscreenElement &&    // alternative standard method
+        !document.mozFullScreenElement && 
+        !document.webkitFullscreenElement && 
+        !document.msFullscreenElement) {  // current working methods
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.mozRequestFullScreen) {
+            video.mozRequestFullScreen();
+        } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+            video.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
     }
 }
        var titleAudio; // Declare the title audio variable globally
