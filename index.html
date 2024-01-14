@@ -275,16 +275,17 @@ header {
 function toggleFullScreen(videoContainer) {
     var video = videoContainer.querySelector('video');
     
-    if (video.requestFullscreen) {
+    // Check if the browser supports the Fullscreen API and if there's a user action
+    if (video.requestFullscreen && document.fullscreenEnabled) {
         video.requestFullscreen();
-    } else if (video.mozRequestFullScreen) {
+    } else if (video.mozRequestFullScreen && document.mozFullScreenEnabled) {
         video.mozRequestFullScreen();
-    } else if (video.webkitRequestFullscreen) {
+    } else if (video.webkitRequestFullscreen && document.webkitFullscreenEnabled) {
         video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen) {
+    } else if (video.msRequestFullscreen && document.msFullscreenEnabled) {
         video.msRequestFullscreen();
     }
-}    
+}
        var titleAudio; // Declare the title audio variable globally
        var videoAudio; // Declare the video audio variable globally
        var currentVideo; // Variable to keep track of the currently playing video
