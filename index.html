@@ -126,7 +126,21 @@ header {
        h1 {
            text-align: center;
        }
+/* Style the full-screen button */
+.fullscreen-button {
+    text-align: center;
+    color: #ffffff;
+    background-color: #4c4c4c;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
+/* Style the button on hover (optional) */
+.fullscreen-button:hover {
+    background-color: #666666;
+}
 
 
        /* Style for the additional text */
@@ -176,7 +190,11 @@ header {
     <div class="video-container">
         <!-- Video 1 -->
         <div class="video-item">
-            <div onclick="toggleVideo(0)" loop>
+           <!-- Full-screen button -->
+<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode)">
+  <i class="fas fa-expand"></i> Watch in Full Screen
+</div>
+           <div onclick="toggleVideo(0)" loop>
                 <video poster="1.jpg" class="poster" loop playsinline>
                     <source src="regeneration1.mov" type="video/quicktime">
                     Your browser does not support the video tag.
@@ -195,7 +213,12 @@ header {
         
        <!-- Video 2 -->
 <div class="video-item">
-    <div onclick="toggleVideo(1)" loop>
+ 
+   <!-- Full-screen button -->
+<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode)">
+  <i class="fas fa-expand"></i> Watch in Full Screen
+</div>
+   <div onclick="toggleVideo(1)" loop>
         <video poster="2.jpg" class="poster" loop playsinline>
            <source src="regeneration2.mov" type="video/quicktime">
             Your browser does not support the video tag.
@@ -211,7 +234,11 @@ header {
 
 <!-- Video 3 -->
 <div class="video-item">
-    <div onclick="toggleVideo(2)" loop>
+   <!-- Full-screen button -->
+<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode)">
+  <i class="fas fa-expand"></i> Watch in Full Screen
+</div>
+   <div onclick="toggleVideo(2)" loop>
        <video poster="3.jpg" class="poster" loop playsinline>
            <source src="regeneration3.mov" type="video/quicktime">
             Your browser does not support the video tag.
@@ -241,18 +268,19 @@ header {
 
 
    <script>
-          function toggleMenu() {
-        var menuContainer = document.getElementById('menuContainer');
-        var currentDisplay = window.getComputedStyle(menuContainer).display;
-
-        menuContainer.style.display = (currentDisplay === 'block') ? 'none' : 'block';
+          
+function toggleFullScreen(videoContainer) {
+    if (videoContainer.requestFullscreen) {
+        videoContainer.requestFullscreen();
+    } else if (videoContainer.mozRequestFullScreen) {
+        videoContainer.mozRequestFullScreen();
+    } else if (videoContainer.webkitRequestFullscreen) {
+        videoContainer.webkitRequestFullscreen();
+    } else if (videoContainer.msRequestFullscreen) {
+        videoContainer.msRequestFullscreen();
     }
-
-    function closeMenu() {
-        var menuContainer = document.getElementById('menuContainer');
-        menuContainer.style.display = 'none';
-    }
-
+}
+    
        var titleAudio; // Declare the title audio variable globally
        var videoAudio; // Declare the video audio variable globally
        var currentVideo; // Variable to keep track of the currently playing video
