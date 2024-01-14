@@ -200,7 +200,7 @@ header {
                 <div class="video-caption" style="background-color: #4c4c4c;" onclick="toggleDescription(0)"> <i class="fas fa-play"></i><br>LLoyds<br> 
                 </div>
                 <!-- Full-screen button -->
-<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode)">
+<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode.querySelector('video'))">
   <i class="fas fa-expand"></i> Full Screen <br>
 </div>
                 <!-- Video description -->
@@ -225,8 +225,8 @@ header {
         <div class="video-caption" style="background-color: #4c4c4c;" onclick="toggleDescription(1)"><i class="fas fa-play"></i><br> Gherkin<br></div>
         <!-- Video description -->
        <!-- Full-screen button -->
-<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode)">
-  <i class="fas fa-expand"></i>  Full Screen
+<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode.querySelector('video'))">
+      <i class="fas fa-expand"></i>  Full Screen
 </div> <div class="video-description">
             
         </div>
@@ -244,8 +244,8 @@ header {
         <!-- Video caption (toggle button) -->
         <div class="video-caption" style="background-color: #4c4c4c;" onclick="toggleDescription(2)"> <i class="fas fa-play"></i><br>Women <br></div>
       <!-- Full-screen button -->
-<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode)">
-  <i class="fas fa-expand"></i>  Full Screen
+<div class="fullscreen-button" onclick="toggleFullScreen(this.parentNode.querySelector('video'))">
+   <i class="fas fa-expand"></i>  Full Screen
 </div>
       <!-- Video description -->
         
