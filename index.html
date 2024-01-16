@@ -288,29 +288,36 @@ header {
 
 
 
-      function playTitleAudio() {
-    console.log("playTitleAudio function called"); // Add this line
+       function playTitleAudio() {
+           if (!titleAudio) {
+               titleAudio = new Audio('010.m4a'); // Replace 'Lindsay.mp3' with the path to your title MP3 audio file
+               titleAudio.loop = true; // Set the audio to loop continuously
+               titleAudio.volume = 0.2; // Set the volume to your desired value
+           }
 
-    if (!titleAudio) {
-        titleAudio = new Audio('Regeneration.m4a');
-        titleAudio.loop = false;
-        titleAudio.volume = 0.2;
-    }
+           // Play or pause the title audio when the title button is clicked
+           if (!titleAudio.paused) {
+               titleAudio.pause(); // Pause the audio if it's playing
+           } else {
+               titleAudio.play(); // Resume playing if it's paused
+           }
+       }
 
-    if (!titleAudio.paused) {
-        titleAudio.pause();
-    } else {
-        titleAudio.play();
-    }
-}
-      
+       function playVideoAudio() {
+           if (!videoAudio) {
+               videoAudio = new Audio('Regeneration.m4a'); // Replace '010.mp3' with the path to your video MP3 audio file
+               videoAudio.volume = 0.2; // Set the volume to your desired value
+           }
 
-       
            // Play the video audio when a video is playing
            videoAudio.play();
        }
 
- 
+       // Function to toggle video description
+       function toggleDescription(index) {
+           var description = document.querySelectorAll('.video-description')[index];
+           description.style.display = description.style.display === 'block' ? 'none' : 'block';
+       }
 
        // Function to play or pause the video when a poster is clicked
        function toggleVideo(index) {
